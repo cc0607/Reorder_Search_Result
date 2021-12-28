@@ -32,8 +32,8 @@ public class KeywordList {
 	public int findLCS(String x, String y){
 		//1. fill this method
 		int len1=x.length();
-			int len2=y.length();
-			int c[][]=new int[len1+1][len2+1];
+		int len2=y.length();
+		int c[][]=new int[len1+1][len2+1];
 			for(int i=0;i<=len1;i++) {
 				for(int j=0;j<=len2;j++) {
 				if(i==0||j==0) {
