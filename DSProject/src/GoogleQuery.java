@@ -39,10 +39,12 @@ public class GoogleQuery
 	{
 
 		this.searchKeyword = searchKeyword;
+		String specialKeyword = "DoveChocolate";
 
-		this.url = "http://www.google.com/search?q="+searchKeyword+"chocolate"+"&oe=utf8&num=20";
+		this.url = "http://www.google.com/search?q="+searchKeyword+specialKeyword+"&oe=utf8&num=20";
 
 	}
+
 
 	
 
