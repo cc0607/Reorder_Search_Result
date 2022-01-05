@@ -24,7 +24,7 @@ import org.jsoup.select.Elements;
 
 
 
-public class GoogleQuery 
+public class DoveQuery 
 
 {
 
@@ -34,7 +34,7 @@ public class GoogleQuery
 
 	public String content;
 
-	public GoogleQuery(String searchKeyword)
+	public DoveQuery(String searchKeyword)
 
 	{
 
