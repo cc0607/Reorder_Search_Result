@@ -30,8 +30,8 @@ public class Project extends HttpServlet{
 			request.getRequestDispatcher("Search.jsp").forward(request, response);
 			return;
 		}
-		GoogleQuery google = new GoogleQuery(request.getParameter("keyword"));
-		HashMap<String, String> query = google.query();
+		DoveQuery dove = new DoveQuery(request.getParameter("keyword"));
+		HashMap<String, String> query = dove.query();
 		
 		String[][] s = new String[query.size()][2];
 		request.setAttribute("query", s);
@@ -43,7 +43,7 @@ public class Project extends HttpServlet{
 		    s[num][1] = value;
 		    num++;
 		}
-		request.getRequestDispatcher("googleitem.jsp")
+		request.getRequestDispatcher("doveitem.jsp")
 		 .forward(request, response); 
 		
 	}
