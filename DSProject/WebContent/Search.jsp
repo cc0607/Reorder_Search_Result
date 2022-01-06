@@ -55,7 +55,7 @@
 
 		<img src="./image/chocoholic.jpg" class="rounded mx-auto d-block" alt="chocolate">
 		<h4>Search Engine for Chocoholic</h4>
-		<input type="text" placeholder="Search..."id="keyword"><br>
+		<input type="text" placeholder="Search..."id="keyword" name="keyword"><br>
 		<button type="button" class="btn btn-secondary" style="width: 500px;height: 50px; font-size: 20px;">Search</button>
 
 	</div>

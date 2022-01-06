@@ -21,7 +21,7 @@ public class Main{
 		try {
 			System.out.println(new DoveQuery("DoveChocolate").query());
 			DoveQuery g =new DoveQuery("DoveChocolate");
-//			g.query();
+			g.query();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
