@@ -16,7 +16,7 @@ public class Main{
 		
 		KeywordList keyList = new KeywordList();
 		keyList.add(new Keyword("chocolate",5));
-		keyList.add(new Keyword("¥©§J¤O",5));
+		keyList.add(new Keyword("å·§å…‹åŠ›",5));
 		
 		try {
 			System.out.println(new DoveQuery("DoveChocolate").query());
