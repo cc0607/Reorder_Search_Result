@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 public class Main{
 
 	public static void main(String[] args) {
+		
+		KeywordList keyList = new KeywordList();
+		keyList.add(new Keyword("chocolate",5));
+		keyList.add(new Keyword("¥©§J¤O",5));
+		
 		try {
 			System.out.println(new GoogleQuery("Dove").query());
 			GoogleQuery g =new GoogleQuery("Dove");
