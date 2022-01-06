@@ -56,7 +56,7 @@
 		
 			
 		
-		<button type="button" class="btn btn-secondary" style="width: 200px;height: 50px; font-size: 20px;">Search</button>
+		<button type="button" class="btn btn-secondary" style="width: 180px;height: 50px; font-size: 20px;">Search</button>
 
 	</div>
 
