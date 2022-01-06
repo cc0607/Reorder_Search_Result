@@ -24,7 +24,7 @@ import org.jsoup.select.Elements;
 
 
 
-public class GoogleQuery 
+public class DoveQuery 
 
 {
 
@@ -34,14 +34,14 @@ public class GoogleQuery
 
 	public String content;
 
-	public GoogleQuery(String searchKeyword)
+	public DoveQuery(String searchKeyword)
 
 	{
 
 		this.searchKeyword = searchKeyword;
 		String specialKeyword = "DoveChocolate";
 
-		this.url = "http://www.google.com/search?q="+searchKeyword+specialKeyword+"&oe=utf8&num=20";
+		this.url = "http://www.google.com/search?q="+specialKeyword+searchKeyword+"&oe=utf8&num=20";
 
 	}
 

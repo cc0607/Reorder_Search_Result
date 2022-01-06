@@ -19,8 +19,8 @@ public class Main{
 		keyList.add(new Keyword("¥©§J¤O",5));
 		
 		try {
-			System.out.println(new GoogleQuery("Dove").query());
-			GoogleQuery g =new GoogleQuery("Dove");
+			System.out.println(new GoogleQuery("DoveChocolate").query());
+			GoogleQuery g =new GoogleQuery("DoveChocolate");
 //			g.query();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
