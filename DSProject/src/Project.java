@@ -17,6 +17,7 @@ public class Project extends HttpServlet{
     /**
      * @see HttpServlet#HttpServlet()
      */
+	public DoveQuery dove;
 	
 	public Project() {
 		
@@ -32,11 +33,13 @@ public class Project extends HttpServlet{
 		if(request.getParameter("keyword")== null) {
 			String requestUri = request.getRequestURI();
 			request.setAttribute("requestUri", requestUri);
-			request.getRequestDispatcher("Search.jsp").forward(request, response);
+			request.getRequestDispatcher("s.jsp").forward(request, response);
 			return;
 		}
-		DoveQuery dove = new DoveQuery(request.getParameter("keyword"));
+//		dove = new DoveQuery(request.getParameter("keyword"),Integer.parseInt(request.getParameter("searchNum")),request.getParameter("language"));
+		dove = new DoveQuery(request.getParameter("keyword"),10,"chinese");
 		HashMap<String, String> query = dove.query();
+		
 		
 		String[][] s = new String[query.size()][2];
 		request.setAttribute("query", s);
@@ -48,14 +51,15 @@ public class Project extends HttpServlet{
 		    s[num][1] = value;
 		    num++;
 		}
-		request.getRequestDispatcher("doveitem.jsp")
-		 .forward(request, response); 
+		
+		request.getRequestDispatcher("doveitem.jsp").forward(request, response); 
 		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		dove.printResult();
 	}
 
 }

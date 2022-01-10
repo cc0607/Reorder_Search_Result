@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
 public class KeywordList {
-	private ArrayList<Keyword> lst;
+	public ArrayList<Keyword> lst;
 	
-	public KeywordList(){
-		this.lst = new ArrayList<Keyword>();
+	public KeywordList(ArrayList<Keyword> lst){
+		//this.lst = new ArrayList<Keyword>();
+		this.lst = lst;
     }
 	
 	public void add(Keyword keyword){

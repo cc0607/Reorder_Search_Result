@@ -1,0 +1,9 @@
+add Chocolate 5
+add Candy 3
+add Delicious 2
+add Dessert 3
+add Icecream 2
+add Cocoa 4
+add Hair -4
+add Cleansing -3
+add Sampoo -3
