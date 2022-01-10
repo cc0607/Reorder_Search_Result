@@ -103,18 +103,20 @@ public class DoveQuery
 //		}
 //		scanner.close();
 		
-		defaultList.add(new Keyword("chocolate",5));
-		defaultList.add(new Keyword("candy",3));
-		defaultList.add(new Keyword("delicious",2));
-		defaultList.add(new Keyword("desert",3));
-		defaultList.add(new Keyword("ice cream",2));
-		defaultList.add(new Keyword("cococa",4));
-		defaultList.add(new Keyword("sweet",2));
-		defaultList.add(new Keyword("hair",-5));
-		defaultList.add(new Keyword("body",-4));
-		defaultList.add(new Keyword("cleansing",-3));
-		defaultList.add(new Keyword("lotion",-5));
-		defaultList.add(new Keyword("conditioner",-5));
+		defaultList.add(new Keyword("Chocolate",5));			defaultList.add(new Keyword("巧克力",5));
+		defaultList.add(new Keyword("Candy",3));				defaultList.add(new Keyword("糖果",3));
+		defaultList.add(new Keyword("Delicious",2));			defaultList.add(new Keyword("冰淇淋",2));
+		defaultList.add(new Keyword("Dessert",3));				defaultList.add(new Keyword("甜點",3));
+		defaultList.add(new Keyword("Ice cream",2));			defaultList.add(new Keyword("暺��",3));
+		defaultList.add(new Keyword("Cocoa",4));				defaultList.add(new Keyword("�瘛��",2));
+		defaultList.add(new Keyword("Hair",-5));				defaultList.add(new Keyword("��",4));	
+		defaultList.add(new Keyword("Body",-4));				defaultList.add(new Keyword("�擃�",-5));
+		defaultList.add(new Keyword("Cleansing",-3));			defaultList.add(new Keyword("頨恍��",-4));
+		defaultList.add(new Keyword("Deodorant",-5));			defaultList.add(new Keyword("皜��",-3));	
+		defaultList.add(new Keyword("Lotion",-5));				defaultList.add(new Keyword("�����",-5));	
+		defaultList.add(new Keyword("Antiperspirant",-5));		defaultList.add(new Keyword("瘣��",-5));	
+		defaultList.add(new Keyword("Conditioner",-5));			defaultList.add(new Keyword("甇Ｘ���",-5));	
+		defaultList.add(new Keyword("除臭劑",-5));
 		
 		this.defaultKeywordList = new KeywordList(defaultList);
 		
@@ -133,7 +135,7 @@ public class DoveQuery
 		}
 		
 		
-		this.url = "http://www.google.com/search?q="+URLEncoder.encode(searchKeyword,"UTF-8")+"&oe=utf8&num="+resultNum;
+		this.url = "http://www.google.com/search?q=Chocolate"+URLEncoder.encode(searchKeyword,"UTF-8")+"&oe=utf8&num="+resultNum;
 		if(resultLan=="chinese") {
 			
 			this.url.concat("&lr=lang_zh-CN%7Clang_zh-TW");
