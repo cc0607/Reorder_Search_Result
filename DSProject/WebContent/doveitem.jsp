@@ -25,7 +25,7 @@ text-decoration:underline;
 </style>
 </head>
 <body>
-<body style='background-color: #01A9DB'>
+<body style='background-color: #ffffff'>
 <form action='${requestUri}' method='get'>
 
 	<div style='position: absolute;margin-top:190px;margin-left:50px'>
