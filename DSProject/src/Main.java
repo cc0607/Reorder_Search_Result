@@ -51,7 +51,6 @@ public class Main extends HttpServlet{
 		try {
 //			System.out.println(new DoveQuery("DoveChocolate",20,"Chinese").query());
 			DoveQuery g =new DoveQuery("sweet",10,"Chinese");
-			g.query();
 			g.printResult();
 			
 		} catch (IOException e) {
