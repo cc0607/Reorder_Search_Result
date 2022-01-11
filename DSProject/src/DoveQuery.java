@@ -266,10 +266,6 @@ public class DoveQuery
 		
 		
 		
-	}
-
-	
-
-	
+	}	
 
 }
