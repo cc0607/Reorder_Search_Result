@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,9 +24,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import org.jsoup.select.Elements;
-
-
-
 public class DoveQuery 
 
 {
@@ -44,7 +42,7 @@ public class DoveQuery
 	
 	public String content;
 	
-	public WebHeap heap;
+	public WebHeap orderedResults;
 	
 	public String result;
 	
@@ -52,11 +50,13 @@ public class DoveQuery
 	public int errorUrl;
 	
 	
+	
 
 	public DoveQuery(String searchKeyword, int resultNum, String resultLan) throws IOException
 
 	{
-		this.heap = new WebHeap();
+System.out.println("Hello");
+		this.orderedResults = new WebHeap();
 		this.resultLan = resultLan;
 		this.resultNum = resultNum;
 		this.searchKeyword = searchKeyword;
@@ -65,6 +65,8 @@ public class DoveQuery
 		addKeyword();
 		setKeyword();
 		fetchContent();
+		populateOrderedResults();
+
 		
 		//String specialKeyword = "DoveChocolate";
 
@@ -116,7 +118,8 @@ public class DoveQuery
 		defaultList.add(new Keyword("Lotion",-5));				defaultList.add(new Keyword("�����",-5));	
 		defaultList.add(new Keyword("Antiperspirant",-5));		defaultList.add(new Keyword("瘣��",-5));	
 		defaultList.add(new Keyword("Conditioner",-5));			defaultList.add(new Keyword("甇Ｘ���",-5));	
-		defaultList.add(new Keyword("除臭劑",-5));
+		defaultList.add(new Keyword("除臭劑",-5));	
+		
 		
 		this.defaultKeywordList = new KeywordList(defaultList);
 		
@@ -142,6 +145,7 @@ public class DoveQuery
 			
 		}
 		userLst = new KeywordList(list);
+		System.out.println("inside set Keyword " + this.url);
 	}
 
 
@@ -152,6 +156,7 @@ public class DoveQuery
 	{
 		String retVal = "";
 
+		System.out.println(url);
 		URL u = new URL(url);
 
 		URLConnection conn = u.openConnection();
@@ -173,20 +178,14 @@ public class DoveQuery
 		}
 		return retVal;
 	}
-	public HashMap<String, String> query() throws IOException
-
+	
+	public void populateOrderedResults() throws IOException
 	{
 
 		if(content==null)
-
 		{
-
 			content= fetchContent();
-
 		}
-		
-		
-		HashMap<String, String> retVal = new HashMap<String, String>();
 		
 		Document doc = Jsoup.parse(content);
 //		System.out.println(doc.text());
@@ -222,60 +221,39 @@ public class DoveQuery
 				}
 				
 				try {					
-					WebNode w = new WebNode(new WebPage(citeUrl,title,userLst));
+					WebNode w = new WebNode(new WebPage(citeUrl, title, userLst));
 					w.setNodeScore(this.defaultKeywordList);
 					System.out.println(w.nodeScore);
-					heap.add(w);
+					orderedResults.add(w);
 					okUrl++;
 					
 				}catch(Exception e) {
-					
 					System.out.println("Error:"+e.getMessage()+e);
 					
 					errorUrl++;
 				}
 				
 //				System.out.println(title + ","+citeUrl);
-				retVal.put(title, citeUrl);
-
 			} catch (IndexOutOfBoundsException e) {
 
 //				e.printStackTrace();
 
 			}
-
-				
-				
-				
-				
-				
-//				
-				
-			
+		
 //				System.out.println(title + ","+citeUrl);
 				
-
-			
 				}
-				
-			
-
-
-		
-		return retVal;
-		
-
 	}
 	
 	public void printResult() {
 		
 		System.out.println("<------Result----->");
 		
-		System.out.println(heap.heap.size());
+		System.out.println(orderedResults.heap.size());
 		
-		for(int i=1;heap.heap.size()>0;i++){
+		for(int i=1;orderedResults.heap.size()>0;i++){
 			
-			WebNode w = heap.removeMax();
+			WebNode w = orderedResults.removeMax();
 			
 			System.out.println(i+". "+w.webPage.name);
 			System.out.println("Score: "+w.nodeScore);
