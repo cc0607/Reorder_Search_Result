@@ -22,7 +22,7 @@ public WebNode root;
 			
 		}
 		//**setNode score of startNode
-			startNode.setNodeScore(keywords);
+			startNode.setNodeScore(new KeywordList(keywords));
 		}
 	
 	public void eularPrintTree(){
