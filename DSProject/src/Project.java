@@ -38,15 +38,15 @@ public class Project extends HttpServlet{
 		}
 //		dove = new DoveQuery(request.getParameter("keyword"),Integer.parseInt(request.getParameter("searchNum")),request.getParameter("language"));
 		dove = new DoveQuery(request.getParameter("keyword"),10,"chinese");
-		HashMap<String, String> query = dove.query();
+		WebHeap query = dove.orderedResults;
 		
 		
-		String[][] s = new String[query.size()][2];
+		String[][] s = new String[query.heap.size()][2];
 		request.setAttribute("query", s);
 		int num = 0;
-		for(Entry<String, String> entry : query.entrySet()) {
-		    String key = entry.getKey();
-		    String value = entry.getValue();
+		for(WebNode entry : query.heap) {
+		    String key = entry.webPage.name;
+		    String value = entry.webPage.url;
 		    s[num][0] = key;
 		    s[num][1] = value;
 		    num++;
