@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -9,8 +10,6 @@ public class WebNode {
 	
 	public WebNode(WebPage webPage){
 		this.webPage = webPage;
-		
-		
 	}
 	
 	public void setNodeScore(KeywordList keywords) throws IOException{
