@@ -55,7 +55,6 @@ public class DoveQuery
 	public DoveQuery(String searchKeyword, int resultNum, String resultLan) throws IOException
 
 	{
-System.out.println("Hello");
 		this.orderedResults = new WebHeap();
 		this.resultLan = resultLan;
 		this.resultNum = resultNum;
@@ -145,7 +144,6 @@ System.out.println("Hello");
 			
 		}
 		userLst = new KeywordList(list);
-		System.out.println("inside set Keyword " + this.url);
 	}
 
 
