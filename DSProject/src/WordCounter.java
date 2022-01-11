@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class WordCounter {
 	private String urlStr;
     private String content;
-    private double score;
     
     public WordCounter(String urlStr){
     	this.urlStr = urlStr;
@@ -53,30 +52,6 @@ public class WordCounter {
 		return retVal;
     }
     
-    public double getScore() throws IOException{
-    	
-    	ArrayList<Keyword>keywords=new ArrayList<Keyword>();
-    	keywords.add(new Keyword("Chocolate",5));			keywords.add(new Keyword("巧克力",5));
-    	keywords.add(new Keyword("Candy",3));				keywords.add(new Keyword("糖果",3));
-    	keywords.add(new Keyword("Delicious",2));			keywords.add(new Keyword("冰淇淋",2));
-    	keywords.add(new Keyword("Dessert",3));				keywords.add(new Keyword("甜點",3));
-    	keywords.add(new Keyword("Ice cream",2));			keywords.add(new Keyword("暺��",3));
-    	keywords.add(new Keyword("Cocoa",4));				keywords.add(new Keyword("�瘛��",2));
-    	keywords.add(new Keyword("Hair",-5));				keywords.add(new Keyword("��",4));	
-    	keywords.add(new Keyword("Body",-4));				keywords.add(new Keyword("�擃�",-5));
-    	keywords.add(new Keyword("Cleansing",-3));			keywords.add(new Keyword("頨恍��",-4));
-    	keywords.add(new Keyword("Deodorant",-5));			keywords.add(new Keyword("皜��",-3));	
-    	keywords.add(new Keyword("Lotion",-5));				keywords.add(new Keyword("�����",-5));	
-    	keywords.add(new Keyword("Antiperspirant",-5));		keywords.add(new Keyword("瘣��",-5));	
-    	keywords.add(new Keyword("Conditioner",-5));		keywords.add(new Keyword("甇Ｘ���",-5));	
-    	keywords.add(new Keyword("除臭劑",-5));	
-    	
-		score = 0;
-//		3.calculate score
-		for(Keyword k : keywords){	
-			score+=k.weight*countKeyword(k.name);
-		}
-		return score;
-	}
+    
   
 }
