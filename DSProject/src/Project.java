@@ -37,8 +37,14 @@ public class Project extends HttpServlet{
 			return;
 		}
 
-//		dove = new DoveQuery(request.getParameter("keyword"),3,"chinese");
-		dove = new DoveQuery(request.getParameter("keyword"),Integer.parseInt(request.getParameter("searchNum")),request.getParameter("languages"));
+//		dove = new DoveQuery(request.getParameter("keyword"),1,"chinese");
+		String lan = "any";
+		if(request.getParameter("languages").contains("chinese")) {
+			lan="chinese";
+		}
+		dove = new DoveQuery(request.getParameter("keyword"),Integer.parseInt(request.getParameter("searchNum")),lan);
+//		System.out.println(request.getParameter("languages").contains("chinese"));
+		System.out.println(dove.url);
 		WebHeap query = dove.orderedResults;
 		dove.printResult();		
 		
