@@ -203,6 +203,12 @@ public class DoveQuery
 				String citeUrl = li.select("a").get(0).attr("href");
 				citeUrl=URLDecoder.decode(citeUrl,"UTF-8");
 				citeUrl=URLDecoder.decode(citeUrl,"UTF-8");
+				
+				String htmlUrl = li.select("a").get(0).attr("href");
+				htmlUrl=URLDecoder.decode(htmlUrl,"UTF-8");
+				htmlUrl=URLDecoder.decode(htmlUrl,"UTF-8");
+				
+				
 				String title = li.select("a").get(0).select(".vvjwJb").text();
 				if(title.equals("")) {
 					continue;
@@ -213,13 +219,16 @@ public class DoveQuery
 					citeUrl = citeUrl.substring(index);
 					if(citeUrl.contains("&sa=")) {
 						citeUrl = citeUrl.substring(0,citeUrl.indexOf("&sa"));
+						htmlUrl=htmlUrl.substring(0, htmlUrl.indexOf("sa"));
 					
 					}
 					System.out.println("url:"+citeUrl+"title"+title);
 				}
 				
-				try {					
-					WebNode w = new WebNode(new WebPage(citeUrl, title, userLst));
+				try {			
+					WebPage wp=new WebPage(citeUrl,title,userLst);
+					wp.setCiteUrl(htmlUrl);
+					WebNode w = new WebNode(wp);
 					w.setNodeScore(this.defaultKeywordList);
 					System.out.println(w.nodeScore);
 					orderedResults.add(w);
