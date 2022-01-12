@@ -62,5 +62,17 @@ public class WebHeap {
 		
 	}
 	
+	public WebHeap clone() {
+		
+		WebHeap cloneHeap = new WebHeap();
+		
+		for(WebNode w: this.heap) {
+			
+			cloneHeap.add(w);			
+		}
+		
+		return cloneHeap;
+	}
+	
 	
 }
