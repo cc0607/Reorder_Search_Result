@@ -52,13 +52,12 @@ public class DoveQuery
 	
 	
 
-	public DoveQuery(String searchKeyword, int resultNum, String resultLan) throws IOException
-
-	{
+	public DoveQuery(String searchKeyword, int resultNum, String resultLan) throws IOException{
 		this.orderedResults = new WebHeap();
 		this.resultLan = resultLan;
 		this.resultNum = resultNum;
 		this.searchKeyword = searchKeyword;
+		this.url = "http://www.google.com/search?q=Chocolate"+URLEncoder.encode(searchKeyword,"UTF-8")+"&oe=utf8&num="+resultNum;
 		this.okUrl = 0;
 		this.errorUrl = 0;
 		addKeyword();
@@ -66,43 +65,12 @@ public class DoveQuery
 		fetchContent();
 		populateOrderedResults();
 
-		
-		//String specialKeyword = "DoveChocolate";
-
-//		this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num="+resultNum;
-
 	}
 	
 	public void addKeyword() throws FileNotFoundException {//設定原始keyword
 		
 		ArrayList<Keyword> defaultList = new ArrayList<Keyword>();
 		
-		
-//		File file = new File("./input.txt");		
-//		Scanner scanner = new Scanner(file);
-//	
-//		while(scanner.hasNextLine()){
-//			
-//			try {
-//				String operation = scanner.next();
-//			
-//				switch (operation){
-//					case "add":
-//						String name = scanner.next();
-//						int count = scanner.nextInt();			
-//						lst.add(new Keyword(name, count));
-//						System.out.print(name);
-//						break;
-//				
-//					default:
-//						break;
-//			}
-//			
-//			}catch(Exception e) {
-//				
-//			}
-//		}
-//		scanner.close();
 		
 		defaultList.add(new Keyword("Chocolate",5));			defaultList.add(new Keyword("巧克力",5));
 		defaultList.add(new Keyword("Candy",3));				defaultList.add(new Keyword("糖果",3));
@@ -137,7 +105,7 @@ public class DoveQuery
 		}
 		
 		
-		this.url = "http://www.google.com/search?q=Chocolate"+URLEncoder.encode(searchKeyword,"UTF-8")+"&oe=utf8&num="+resultNum;
+		
 		if(resultLan=="chinese") {
 			
 			this.url.concat("&lr=lang_zh-CN%7Clang_zh-TW");
@@ -154,7 +122,6 @@ public class DoveQuery
 	{
 		String retVal = "";
 
-		System.out.println(url);
 		URL u = new URL(url);
 
 		URLConnection conn = u.openConnection();
@@ -275,6 +242,10 @@ public class DoveQuery
 		
 		
 		
-	}	
+	}
+
+	
+
+	
 
 }
