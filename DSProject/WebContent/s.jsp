@@ -25,13 +25,7 @@
 
 		.search input{
 
-			width: 60%;
-			border-radius: 30px;
-			outline: none;
-			padding-left: 10px ;
-			padding-top: 10px ;
-			padding-bottom: 10px ;
-			border:  solid 1px darkgray;
+			
 
 		}
 
@@ -123,17 +117,20 @@ function languageAny(){
 	
 			<div class="search">
 				<img src="./image/chocoholic.jpg" class="rounded mx-auto d-block" alt="chocolate">
-				<input type="text" placeholder="Search..."id="keyword" name="keyword">
+				<input type="text" placeholder="Search..."id="keyword" name="keyword" style='width: 60%;
+			border-radius: 30px;
+			outline: none;
+			padding-left: 10px ;
+			padding-top: 10px ;
+			padding-bottom: 10px ;
+			border:  solid 1px darkgray;'><br>
 				
-				<input type='image' src="images/loupe-2.png" 
-				style='position:relative;width:37px;height:37px;left:70%;top:50%;margin-top:-55px;
-				margin-left:368px '/>
+				<input type='image' src="images/loupe-2.png" style='position:relative; padding-left:70%;width:37px;height:37px;margin-top:-55px;
+				margin-left:368px;'/>
 				
 			</div>
 			
 			
-		
-		
 			<div class='buttonGroup' style='padding-top: 20px; padding-bottom:20px'>
 				
 					
@@ -162,11 +159,7 @@ function languageAny(){
 				<input type='text' value='any' id="languages" name="languages" style='visibility:hidden'>
 			</div>
 			
-			<div>
-				<input type='image' src="images/loupe-2.png" 
-				style='position:absolute;width:37px;height:37px;left:50%;top:50%;margin-top:-55px;
-				margin-left:368px '/>
-			</div>
+			
 			
 		</form>
 		
