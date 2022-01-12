@@ -189,7 +189,7 @@ public class DoveQuery
 						htmlUrl=htmlUrl.substring(0, htmlUrl.indexOf("&sa"));
 					
 					}
-					System.out.println("url:"+citeUrl+"title"+title);
+//					System.out.println("url:"+citeUrl+"title"+title);
 				}
 				
 				try {			
@@ -197,7 +197,7 @@ public class DoveQuery
 					wp.setCiteUrl(htmlUrl);
 					WebNode w = new WebNode(wp);
 					w.setNodeScore(this.defaultKeywordList);
-					System.out.println(w.nodeScore);
+//					System.out.println(w.nodeScore);
 					orderedResults.add(w);
 					okUrl++;
 					
@@ -223,11 +223,13 @@ public class DoveQuery
 		
 		System.out.println("<------Result----->");
 		
+		WebHeap cloneHeap = orderedResults.clone();
+		
 		System.out.println(orderedResults.heap.size());
 		
-		for(int i=1;orderedResults.heap.size()>0;i++){
+		for(int i=1;cloneHeap.heap.size()>0;i++){
 			
-			WebNode w = orderedResults.removeMax();
+			WebNode w = cloneHeap.removeMax();
 			
 			System.out.println(i+". "+w.webPage.name);
 			System.out.println("Score: "+w.nodeScore);
