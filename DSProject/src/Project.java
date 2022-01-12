@@ -36,13 +36,14 @@ public class Project extends HttpServlet{
 			request.getRequestDispatcher("s.jsp").forward(request, response);
 			return;
 		}
-		
-		
-		dove = new DoveQuery(request.getParameter("keyword"),10,"chinese");
+
+//		dove = new DoveQuery(request.getParameter("keyword"),3,"chinese");
+		dove = new DoveQuery(request.getParameter("keyword"),Integer.parseInt(request.getParameter("searchNum")),request.getParameter("languages"));
 		WebHeap query = dove.orderedResults;
-		
+		dove.printResult();		
 		
 		String[][] s = new String[query.heap.size()][2];
+		System.out.println(query.heap.size());
 		request.setAttribute("query", s);
 		int num = 0;
 		for(WebNode entry : query.heap) {
@@ -52,6 +53,7 @@ public class Project extends HttpServlet{
 		    s[num][1] = value;
 		    num++;
 		}
+			
 		
 		request.getRequestDispatcher("doveitem.jsp").forward(request, response); 
 		
