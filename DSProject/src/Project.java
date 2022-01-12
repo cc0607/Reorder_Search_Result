@@ -46,7 +46,7 @@ public class Project extends HttpServlet{
 		int num = 0;
 		for(WebNode entry : query.heap) {
 		    String key = entry.webPage.name;
-		    String value = entry.webPage.url;
+		    String value = entry.webPage.citeUrl;
 		    s[num][0] = key;
 		    s[num][1] = value;
 		    num++;
