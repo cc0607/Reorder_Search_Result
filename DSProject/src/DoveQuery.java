@@ -219,7 +219,7 @@ public class DoveQuery
 					citeUrl = citeUrl.substring(index);
 					if(citeUrl.contains("&sa=")) {
 						citeUrl = citeUrl.substring(0,citeUrl.indexOf("&sa"));
-						htmlUrl=htmlUrl.substring(0, htmlUrl.indexOf("sa"));
+						htmlUrl=htmlUrl.substring(0, htmlUrl.indexOf("&sa"));
 					
 					}
 					System.out.println("url:"+citeUrl+"title"+title);
