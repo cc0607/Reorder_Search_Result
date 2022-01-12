@@ -36,7 +36,8 @@ public class Project extends HttpServlet{
 			request.getRequestDispatcher("s.jsp").forward(request, response);
 			return;
 		}
-//		dove = new DoveQuery(request.getParameter("keyword"),Integer.parseInt(request.getParameter("searchNum")),request.getParameter("language"));
+		
+		
 		dove = new DoveQuery(request.getParameter("keyword"),10,"chinese");
 		WebHeap query = dove.orderedResults;
 		
