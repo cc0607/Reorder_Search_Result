@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class WebPage {
 
-	public String url;
+	public String url,citeUrl;
 	public String name;
 	public WordCounter counter;
 	public double score;
@@ -34,5 +34,9 @@ public class WebPage {
 			score+=2.5*count;
 			
 		}
+	}
+	
+	public void setCiteUrl(String url) {
+		this.citeUrl=url;
 	}
 }
