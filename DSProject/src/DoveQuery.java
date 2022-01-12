@@ -58,6 +58,7 @@ public class DoveQuery
 		this.resultNum = resultNum;
 		this.searchKeyword = searchKeyword;
 		this.url = "http://www.google.com/search?q=Chocolate"+URLEncoder.encode(searchKeyword,"UTF-8")+"&oe=utf8&num="+resultNum;
+		setUrl();
 		this.okUrl = 0;
 		this.errorUrl = 0;
 		addKeyword();
@@ -65,6 +66,18 @@ public class DoveQuery
 		fetchContent();
 		populateOrderedResults();
 
+	}
+	public void setUrl() {
+		
+		if(resultLan=="chinese") {
+			
+				
+				this.url+="&lr=lang_zh-CN%7Clang_zh-TW";
+				System.out.println(url);
+					
+				
+				
+		}
 	}
 	
 	public void addKeyword() throws FileNotFoundException {//設定原始keyword
@@ -105,13 +118,8 @@ public class DoveQuery
 		}
 		
 		
-		
-		if(resultLan=="chinese") {
-			
-			this.url.concat("&lr=lang_zh-CN%7Clang_zh-TW");
-			
-		}
 		userLst = new KeywordList(list);
+		
 	}
 
 
@@ -151,7 +159,7 @@ public class DoveQuery
 		{
 			content= fetchContent();
 		}
-		
+		System.out.println(content);
 		Document doc = Jsoup.parse(content);
 //		System.out.println(doc.text());
 		Elements lis = doc.select("div");
