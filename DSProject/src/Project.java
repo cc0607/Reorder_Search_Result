@@ -37,7 +37,7 @@ public class Project extends HttpServlet{
 			return;
 		}
 
-//		dove = new DoveQuery(request.getParameter("keyword"),1,"chinese");
+		dove = new DoveQuery(request.getParameter("keyword"),1,"chinese");
 		String lan = "any";
 		if(request.getParameter("languages").contains("chinese")) {
 			lan="chinese";
