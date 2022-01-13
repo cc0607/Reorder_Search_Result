@@ -84,24 +84,52 @@ public class DoveQuery
 		
 		ArrayList<Keyword> defaultList = new ArrayList<Keyword>();
 		
+
+//		File file = new File("./WebContent/input.txt");		
+//		Scanner scanner = new Scanner(file);
+//	
+//		while(scanner.hasNextLine()){
+//			
+//			try {
+//				String operation = scanner.next();
+//			
+//				switch (operation){
+//					case "add":
+//						String name = scanner.next();
+//						int count = scanner.nextInt();			
+//						defaultList.add(new Keyword(name, count));
+//						System.out.print(name);
+//						break;
+//				
+//					default:
+//						break;
+//			}
+//			
+//			}catch(Exception e) {
+//				
+//			}
+//		}
+//		scanner.close();
+		
 		
 		defaultList.add(new Keyword("Chocolate",5));			defaultList.add(new Keyword("巧克力",5));
 		defaultList.add(new Keyword("Candy",3));				defaultList.add(new Keyword("糖果",3));
 		defaultList.add(new Keyword("Delicious",2));			defaultList.add(new Keyword("冰淇淋",2));
 		defaultList.add(new Keyword("Dessert",3));				defaultList.add(new Keyword("甜點",3));
-		defaultList.add(new Keyword("Ice cream",2));			defaultList.add(new Keyword("暺��",3));
-		defaultList.add(new Keyword("Cocoa",4));				defaultList.add(new Keyword("�瘛��",2));
-		defaultList.add(new Keyword("Hair",-5));				defaultList.add(new Keyword("��",4));	
-		defaultList.add(new Keyword("Body",-4));				defaultList.add(new Keyword("�擃�",-5));
-		defaultList.add(new Keyword("Cleansing",-3));			defaultList.add(new Keyword("頨恍��",-4));
-		defaultList.add(new Keyword("Deodorant",-5));			defaultList.add(new Keyword("皜��",-3));	
-		defaultList.add(new Keyword("Lotion",-5));				defaultList.add(new Keyword("�����",-5));	
-		defaultList.add(new Keyword("Antiperspirant",-5));		defaultList.add(new Keyword("瘣��",-5));	
-		defaultList.add(new Keyword("Conditioner",-5));			defaultList.add(new Keyword("甇Ｘ���",-5));	
+		defaultList.add(new Keyword("Ice cream",2));			defaultList.add(new Keyword("冰淇淋",3));
+		defaultList.add(new Keyword("Cocoa",4));				defaultList.add(new Keyword("可可",2));
+		defaultList.add(new Keyword("Hair",-5));				defaultList.add(new Keyword("焦糖",4));	
+		defaultList.add(new Keyword("Body",-4));				defaultList.add(new Keyword("身體",-5));
+		defaultList.add(new Keyword("Cleansing",-3));			defaultList.add(new Keyword("頭髮",-4));
+		defaultList.add(new Keyword("Deodorant",-5));			defaultList.add(new Keyword("柔順",-3));	
+		defaultList.add(new Keyword("Lotion",-5));				defaultList.add(new Keyword("潤髮",-5));	
+		defaultList.add(new Keyword("Antiperspirant",-5));		defaultList.add(new Keyword("香氛",-5));	
+		defaultList.add(new Keyword("Conditioner",-5));			defaultList.add(new Keyword("清新",-5));	
 		defaultList.add(new Keyword("除臭劑",-5));	
 		
 		
 		this.defaultKeywordList = new KeywordList(defaultList);
+//	
 		
 	}
 	
@@ -150,6 +178,7 @@ public class DoveQuery
 
 		}
 		return retVal;
+		
 	}
 	
 	public void populateOrderedResults() throws IOException
@@ -159,7 +188,7 @@ public class DoveQuery
 		{
 			content= fetchContent();
 		}
-		System.out.println(content);
+//		System.out.println(content);
 		Document doc = Jsoup.parse(content);
 //		System.out.println(doc.text());
 		Elements lis = doc.select("div");
