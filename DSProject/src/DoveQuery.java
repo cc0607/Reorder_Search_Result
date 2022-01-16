@@ -57,7 +57,7 @@ public class DoveQuery
 		this.resultLan = resultLan;
 		this.resultNum = resultNum;
 		this.searchKeyword = searchKeyword;
-		this.url = "http://www.google.com/search?q=Chocolate"+URLEncoder.encode(searchKeyword,"UTF-8")+"&oe=utf8&num="+resultNum;
+		this.url = "http://www.google.com/search?q=Chocolate+"+URLEncoder.encode(searchKeyword,"UTF-8")+"&oe=utf8&num="+resultNum;
 		setUrl();
 		this.okUrl = 0;
 		this.errorUrl = 0;
